@@ -111,7 +111,7 @@ class Anime_Bot:
                 
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25)
+            query.answer()
             
         url="https://www.paypal.com/donate?hosted_button_id=EBUAN5V9ZYENS"
         new_url = self.s.tinyurl.short(url)
@@ -137,7 +137,7 @@ class Anime_Bot:
         username = update.effective_user['username']
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25)
+            query.answer()
             
         context.bot.send_sticker(chat_id=user_id, 
                                 sticker = self.__data['Help'][random.randrange(0,4)])
@@ -158,7 +158,7 @@ class Anime_Bot:
         
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25) 
+            query.answer() 
         
         self.logger.info(f"El usuario {username}/{user_id}, ha creado una solicitud de búsqueda...")
         cadena = f"{self.__data['dragon']}<b> Escribe el nombre del Anime que deseas buscar </b>{self.__data['magnifying_glass']}"
@@ -212,7 +212,7 @@ class Anime_Bot:
         user_id = update.effective_user['id']
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25) 
+            query.answer() 
         
         self.__titles_txt = self.persistence.get_chat_data_(user_id,'titles_txt')
         self.__btns_titles =  literal_eval(self.persistence.get_chat_data_(user_id,'btns_title'))  
@@ -360,7 +360,7 @@ class Anime_Bot:
         self.__index = self.persistence.get_chat_data_(user_id, 'index')
         
         if query != None:
-            query.answer(timeout=25, cache_time=25) 
+            query.answer() 
 
         if query.data == 'EPISODES_RANGE':
             btns = [[InlineKeyboardButton(text=f"Títulos {self.__data['back']}", callback_data='BACK'), 
@@ -412,7 +412,7 @@ class Anime_Bot:
         user_id = update.effective_user['id']
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25)
+            query.answer()
         
         if query.data == 'LIST_EP':
             index = self.persistence.get_chat_data_(user_id, 'index')
@@ -479,7 +479,7 @@ class Anime_Bot:
         user_id = update.effective_user['id']
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25) 
+            query.answer() 
             
         if query.data == 'RANGE':
             self.__index_r = self.persistence.get_chat_data_(user_id, 'index_r')
@@ -572,7 +572,7 @@ class Anime_Bot:
         user_id = update.effective_user['id']
         query = update.callback_query
         if query != None:
-            query.answer(timeout=25, cache_time=25) 
+            query.answer() 
         
         data = query.data
         index = int(data.split("-")[0])
@@ -684,8 +684,7 @@ class Anime_Bot:
                 listen="0.0.0.0",
                 port = PORT, 
                 url_path = self.__TOKEN,
-                webhook_url=f"https://{__HEROKU_APP_NAME}.herokuapp.com/{self.__TOKEN}",
-                bootstrap_retries=5  
+                webhook_url=f"https://{__HEROKU_APP_NAME}.herokuapp.com/{self.__TOKEN}" 
             )
             
             print("::::::::::::::::::::::::::::::::::::Starting BOT::::::::::::::::::::::::::::::::::::::")
