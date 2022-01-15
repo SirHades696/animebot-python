@@ -3,7 +3,7 @@ El objetivo del bot es buscar títulos de animes en la página web de AnimeFLV (
 
 Este bot cuenta con persistencia en FireBase.
 
-Para interactuar con el bot: <a src="https://t.me/AnimesAndMoreBot"> `AnimesAndMoreBot` </a>
+Para interactuar con el bot: <a href="https://t.me/AnimesAndMoreBot"> `AnimesAndMoreBot` </a>
 
 # Variables de Entorno (Env Var)
 Si deseas ejecutar el bot e incorporarlo con FireBase, es necesario crear las siguientes variables de entorno:
